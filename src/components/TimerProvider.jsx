@@ -1,4 +1,3 @@
-// src/components/TimerProvider.js
 import React, { useState, useEffect, createContext } from 'react';
 
 export const TimerContext = createContext();
@@ -6,12 +5,17 @@ export const TimerContext = createContext();
 function TimerProvider(props) {
   const [isRunning, setIsRunning] = useState(false);
   const [time, setTime] = useState(0);
+  const [countdown, setCountdown] = useState(0);
 
   useEffect(() => {
     let intervalId;
     if (isRunning) {
       intervalId = setInterval(() => {
         setTime(time + 1);
+        if (countdown > 0 && time >= countdown) {
+          clearInterval(intervalId);
+          setIsRunning(false);
+        }
       }, 1000);
     } else {
       clearInterval(intervalId);
@@ -20,7 +24,7 @@ function TimerProvider(props) {
     return () => {
       clearInterval(intervalId);
     };
-  }, [isRunning, time]);
+  }, [isRunning, time, countdown]);
 
   const startTimer = () => {
     setIsRunning(true);
@@ -37,6 +41,8 @@ function TimerProvider(props) {
         startTimer,
         stopTimer,
         time,
+        setCountdown,
+        countdown,
       }}
     >
       {props.children}

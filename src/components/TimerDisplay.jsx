@@ -1,4 +1,3 @@
-// src/components/TimerDisplay.js
 import React, { useContext } from 'react';
 import { TimerContext } from './TimerProvider';
 
@@ -8,7 +7,7 @@ function TimerDisplay() {
   return (
     <div className="timer-display">
       <div className="timer-display-time">{time}</div>
-      <div className="timer-display-label">seconds</div>
+      <div className="timer-display-label">Seconds</div>
     </div>
   );
 }

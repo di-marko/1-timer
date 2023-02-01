@@ -1,3 +1,17 @@
+/* import font-family Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f3f3f3;
+}
+
 .timer-display {
   display: flex;
   flex-direction: column;
@@ -23,12 +37,21 @@
 }
 
 .timer-controls-button {
+  font-size: 22px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin: 0 15px;
   border: none;
-  background-color: transparent;
-  font-size: 30px;
-  color: #333;
-  cursor: pointer;
-  margin: 0 10px;
+  border-radius: 5px;
+  color: #0b0b0b;
+  background: #f3f3f3;
+  box-shadow: inset 0 0 7px rgba(66, 66, 66, 0), inset 0 0 10px rgba(255, 255, 255, 0),
+    7px 7px 7px rgba(58, 58, 58, 0.15), -7px -7px 10px white;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.timer-controls-button:hover {
+  box-shadow: inset 7px 7px 7px rgba(66, 66, 66, 0.15), inset -7px -7px 10px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 .timer-offline {
